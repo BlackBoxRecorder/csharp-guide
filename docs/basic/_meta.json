@@ -1,42 +1,50 @@
 [
   {
-    "type": "dir-section-header",
+    "type": "dir",
     "name": "types",
-    "label": "类型系统"
+    "label": "类型系统",
+    "collapsed": true
   },
   {
-    "type": "dir-section-header",
+    "type": "dir",
     "name": "oop",
-    "label": "面向对象"
+    "label": "面向对象",
+    "collapsed": true
   },
   {
-    "type": "dir-section-header",
+    "type": "dir",
     "name": "delegates",
-    "label": "委托与事件"
+    "label": "委托与事件",
+    "collapsed": true
   },
   {
-    "type": "dir-section-header",
+    "type": "dir",
     "name": "collections",
-    "label": "集合"
+    "label": "集合",
+    "collapsed": true
   },
   {
-    "type": "dir-section-header",
+    "type": "dir",
     "name": "linq",
-    "label": "迭代与 LINQ"
+    "label": "迭代与 LINQ",
+    "collapsed": true
   },
   {
-    "type": "dir-section-header",
+    "type": "dir",
     "name": "reflection",
-    "label": "反射与特性"
+    "label": "反射与特性",
+    "collapsed": true
   },
   {
-    "type": "dir-section-header",
+    "type": "dir",
     "name": "async",
-    "label": "异步与并发"
+    "label": "异步与并发",
+    "collapsed": true
   },
   {
-    "type": "dir-section-header",
+    "type": "dir",
     "name": "db",
-    "label": "数据与存储"
+    "label": "数据与存储",
+    "collapsed": true
   }
 ]
