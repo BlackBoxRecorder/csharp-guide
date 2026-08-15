@@ -1,5 +1,10 @@
 [
   {
+    "text": "Basic",
+    "link": "/basic/tcp/tcp-basics",
+    "activeMatch": "/basic/"
+  },
+  {
     "text": "Guide",
     "link": "/guide/start/introduction",
     "activeMatch": "/guide/"

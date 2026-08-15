@@ -2,8 +2,8 @@
 pageType: home
 
 hero:
-  name: My Site
-  text: A cool website!
+  name: C# Guide
+  text: C# 学习指南
   tagline: This is the tagline
   actions:
     - theme: brand
@@ -11,7 +11,7 @@ hero:
       link: /guide/start/introduction
     - theme: alt
       text: GitHub
-      link: https://github.com/web-infra-dev/rspress
+      link: https://blackboxrecorder.github.io/csharp-guide/
   image:
     src: /rspress-icon.png
     alt: Logo
