@@ -1,7 +1,42 @@
 [
   {
     "type": "dir-section-header",
-    "name": "tcp",
-    "label": "TCP"
+    "name": "types",
+    "label": "类型系统"
+  },
+  {
+    "type": "dir-section-header",
+    "name": "oop",
+    "label": "面向对象"
+  },
+  {
+    "type": "dir-section-header",
+    "name": "delegates",
+    "label": "委托与事件"
+  },
+  {
+    "type": "dir-section-header",
+    "name": "collections",
+    "label": "集合"
+  },
+  {
+    "type": "dir-section-header",
+    "name": "linq",
+    "label": "迭代与 LINQ"
+  },
+  {
+    "type": "dir-section-header",
+    "name": "reflection",
+    "label": "反射与特性"
+  },
+  {
+    "type": "dir-section-header",
+    "name": "async",
+    "label": "异步与并发"
+  },
+  {
+    "type": "dir-section-header",
+    "name": "db",
+    "label": "数据与存储"
   }
 ]

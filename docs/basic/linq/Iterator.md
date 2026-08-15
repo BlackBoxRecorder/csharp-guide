@@ -24,7 +24,7 @@ System.Collections.Generic.IEnumerator<T>
 最常见的方式是实现一个返回 IEnumerable<T> 的方法。
 
 :::note
-关于 IEnumerable和IEnumerator的区别查看[这里](/dotnet/basic/IEnumerable-and-IEnumerator)
+关于 IEnumerable和IEnumerator的区别查看[这里](/basic/linq/IEnumerable-and-IEnumerator)
 :::
 
 ## 使用示例

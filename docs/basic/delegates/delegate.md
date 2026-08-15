@@ -139,8 +139,8 @@ button.OnClick();  // 触发事件
 .NET 提供了几种常用的预定义委托，简化了代码编写。
 
 :::note
-常见的委托是 `Func` 和 `Action` ，参考[这里](/dotnet/basic/func-and-action)
-事件 Event 也是一种特殊的委托，参考[这里](/dotnet/basic/event)
+常见的委托是 `Func` 和 `Action` ，参考[这里](/basic/delegates/func-and-action)
+事件 Event 也是一种特殊的委托，参考[这里](/basic/delegates/event)
 :::
 
 ### Predicate 委托

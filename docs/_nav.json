@@ -1,21 +1,32 @@
 [
   {
     "text": "Basic",
-    "link": "/basic/tcp/tcp-basics",
+    "link": "/basic/",
     "activeMatch": "/basic/"
   },
   {
-    "text": "Guide",
-    "link": "/guide/start/introduction",
-    "activeMatch": "/guide/"
+    "text": "Language Features",
+    "link": "/language-features/",
+    "activeMatch": "/language-features/"
   },
   {
-    "text": "API",
-    "link": "/api/",
-    "activeMatch": "/api/"
+    "text": "Web API",
+    "link": "/webapi/",
+    "activeMatch": "/webapi/"
   },
   {
-    "text": "Document",
-    "link": "https://rspress.rs/"
+    "text": "WPF",
+    "link": "/wpf/",
+    "activeMatch": "/wpf/"
+  },
+  {
+    "text": "Communication",
+    "link": "/communication/",
+    "activeMatch": "/communication/"
+  },
+  {
+    "text": "Libraries",
+    "link": "/libraries/",
+    "activeMatch": "/libraries/"
   }
 ]
