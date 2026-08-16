@@ -5,7 +5,7 @@ description: C# 函数与方法详解，包括方法定义与调用、参数传�
 
 ### C# 函数与方法详解
 
-在 C# 中，"函数"的规范叫法是**方法（Method）**——它是类或结构体中一段可复用的代码块。除了方法，C# 还提供了委托、Lambda、局部函数、异步方法等多种"函数形态"，它们共同构成了 C# 的函数体系。本文从入门到进阶，逐一拆解这些形态。
+在 C# 中，"函数"的规范叫法是**方法（Method）**——它是类或结构体中一段可复用的代码块。除了方法，C# 还提供了委托、Lambda、局部函数、异步方法等多种"函数形态"，它们共同构成了 C# 的函数体系。
 
 #### 一、函数的几种形态
 
@@ -58,11 +58,6 @@ public int Add(int a, int b)
 }
 ```
 
-**要点**：
-
-1. 方法名使用 `PascalCase` 命名（如 `GetData`），参数使用 `camelCase`（如 `userId`）
-2. 方法不能嵌套在另一个方法内部定义（局部函数除外，见第六章）
-3. 访问修饰符决定可见性：`public` 任意访问、`private` 仅类内部
 
 #### 三、参数传递
 
@@ -107,6 +102,8 @@ Describe(new Vector3(1, 2, 3)); // 输出：(1, 2, 3)
 2. `in` 是 C# 7.2+ 的只读引用，主要面向大型 `struct` 的性能优化，`class` 传参本身只是复制引用，无需使用
 3. `TryParse` 系列是 `out` 最经典的用法：返回值表示是否成功，`out` 参数带出解析结果
 
+`ref`、`out`、`in` 三种参数的完整对比与常见疑问见[ref、in、out 参数传递](./../types/ref-in-out)。
+
 #### 四、返回值
 
 方法的返回类型决定了它能返回什么。
@@ -133,9 +130,27 @@ Console.WriteLine($"总和 {stats.Sum}，共 {stats.Count} 个"); // 输出：�
 
 **返回接口而非具体类型**：方法可以返回接口（如 `IEnumerable<T>`），让调用方只依赖契约而不依赖实现，这是解耦和可测试的关键。接口的完整讲解见[接口](./interface)。
 
+**返回"函数"本身**：方法的返回类型也可以是委托或 Lambda，让方法"产出"一段可复用的逻辑，这就是**高阶函数**（返回函数的函数）：
+
+```csharp
+// 返回 Action 委托：把"打印动作"作为返回值
+Action CreateLogger(string prefix) => () => Console.WriteLine($"[{prefix}] 记录日志");
+
+// 返回 Func 委托：Lambda 表达式作为返回值
+Func<int, int> CreateAdder(int addend) => x => x + addend;
+
+var log = CreateLogger("INFO");
+log(); // 输出：[INFO] 记录日志
+
+var addFive = CreateAdder(5);
+Console.WriteLine(addFive(10)); // 输出：15
+```
+
+委托、Lambda 与闭包的完整讲解见下一节。
+
 #### 五、委托与 Lambda
 
-委托（Delegate）是 C# 的**类型安全的函数指针**：把"函数"本身当作值来存储、传递和调用。
+委托（Delegate）是 C# 的**类型安全的函数指针**：把"函数"本身当作值来存储、传递和调用。委托的声明、多播、内置泛型委托等完整讲解见[委托](./../delegates/delegate)。
 
 **自定义委托**：
 
