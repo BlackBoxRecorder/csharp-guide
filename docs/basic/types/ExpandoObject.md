@@ -3,7 +3,7 @@ title: ExpandoObject
 description: C# 动态类型 ExpandoObject 的使用详解，包括动态属性添加、JSON 反序列化、与 DataTable 互转等。
 ---
 
-ExpandoObject 是 .NET Framework 4.0 引入的一个类，位于 System.Dynamic 命名空间。它允许我们在运行时动态地添加和删除对象的成员（属性、方法、事件等），非常适合需要灵活数据结构的场景，如 JSON 操作、动态配置、数据转换等。
+ExpandoObject 允许我们在运行时动态地添加和删除对象的成员（属性、方法、事件等），非常适合需要灵活数据结构的场景，如 JSON 操作、动态配置、数据转换等。
 
 ## ExpandoObject 的核心能力
 
@@ -85,27 +85,80 @@ foreach (var kv in (IDictionary<string, object>)obj)
 }
 ```
 
+输出：
+```text
+X = 1
+Y = 2
+```
+
+
 ---
 
 ### 删除属性
 
 ```csharp
+dynamic obj = new ExpandoObject();
+obj.A = 100;
+obj.B = "Hello";
+
 var dict = (IDictionary<string, object>)obj;
-dict.Remove("A");
+
+Console.WriteLine($"删除前属性数量：{dict.Count}");
+
+bool removed = dict.Remove("A");  // 返回是否删除成功
+
+Console.WriteLine($"删除 A 是否成功：{removed}，删除后属性数量：{dict.Count}");
+
+foreach (var kv in dict)
+{
+    Console.WriteLine($"  {kv.Key} = {kv.Value}");
+}
 ```
+
+输出：
+```text
+删除前属性数量：2
+删除 A 是否成功：True，删除后属性数量：1
+  B = Hello
+```
+
+**注意**：属性删除后，再通过 `obj.A` 访问会抛出 `RuntimeBinderException`（运行时绑定异常），因为该成员已不存在。
 
 ### 监听属性变化
 
-因为实现了 INotifyPropertyChanged，可以订阅 PropertyChanged 事件：
+因为实现了 INotifyPropertyChanged，可以订阅 PropertyChanged 事件来监听属性的变化：
 
 ```csharp
-expando.PropertyChanged += (sender, e) =>
+using System.ComponentModel;
+using System.Dynamic;
+
+// 创建 ExpandoObject 并设置初始值
+// 注意：必须用 dynamic 声明，才能以属性的方式访问成员
+dynamic expando = new ExpandoObject();
+expando.Name = "Tom";  // 初始赋值（新增属性，也会触发通知，只是此时还没有订阅者）
+
+// 订阅 PropertyChanged 事件
+// 注意：dynamic 无法直接用 += 订阅事件，需先转换为 INotifyPropertyChanged 接口
+((INotifyPropertyChanged)expando).PropertyChanged += (sender, e) =>
 {
     Console.WriteLine($"属性 {e.PropertyName} 发生变化");
 };
 
-expando.Name = "Bob";  // 会触发通知
+expando.Name = "Bob";  // 修改已有属性，值不同，触发通知
+expando.Age = 18;      // 新增属性，同样触发通知
 ```
+
+输出：
+```text
+属性 Name 发生变化
+属性 Age 发生变化
+```
+
+**要点**：
+
+- 添加新属性、修改已有属性（值不同时）都会触发 `PropertyChanged`
+- 给已有属性赋相同的值时不会触发通知
+- `dynamic` 无法直接 `expando.PropertyChanged += lambda` 订阅事件（编译器不知道委托类型），必须先转换为 `INotifyPropertyChanged` 接口再订阅
 
 ## ExpandoObject 的典型使用场景
 
@@ -126,6 +179,8 @@ Console.WriteLine(json);
 ```
 
 将 JSON 字符串转成对象：
+
+需要安装 nuget 包 `Newtonsoft.Json`
 
 ```csharp
 // 模拟从API接收的动态JSON数据
