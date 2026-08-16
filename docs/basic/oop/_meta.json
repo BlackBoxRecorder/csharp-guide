@@ -1,7 +1,6 @@
 [
-  "index",
   "abstract",
   "interface",
-  "virtual-method",
+  "function",
   "indexer"
 ]
