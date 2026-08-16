@@ -1,0 +1,7 @@
+[
+  { "type": "file", "name": "common-types", "label": "常用内置类型" },
+  { "type": "file", "name": "struct", "label": "结构体" },
+  { "type": "file", "name": "record", "label": "record" },
+  { "type": "file", "name": "ref-in-out", "label": "ref、in、out" },
+  { "type": "file", "name": "ExpandoObject", "label": "ExpandoObject" }
+]

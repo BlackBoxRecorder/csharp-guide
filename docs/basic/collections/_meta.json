@@ -1,0 +1,17 @@
+[
+  { "type": "file", "name": "basic", "label": "常用数据结构" },
+  { "type": "file", "name": "sorted-collections", "label": "有序集合" },
+  {
+    "type": "file",
+    "name": "readonly-and-immutable",
+    "label": "只读与不可变集合"
+  },
+  { "type": "file", "name": "specialized-collections", "label": "专用集合" },
+  { "type": "file", "name": "memory-and-performance", "label": "内存与性能" },
+  { "type": "file", "name": "Channel", "label": "Channel" },
+  {
+    "type": "file",
+    "name": "BlockingCollection",
+    "label": "BlockingCollection"
+  }
+]

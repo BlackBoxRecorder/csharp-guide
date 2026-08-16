@@ -9,20 +9,13 @@
 - 本文档链接为项目根目录相对路径（无扩展名），在文章内引用时需去掉 `docs/` 前缀，并按文章所在层级添加 `../`。
   例如：本文档链接 `./docs/basic/oop/function`，在 `docs/basic/types/record.md` 中引用时应写作 `./../oop/function`。
 
-共收录 48 篇文章，最后更新：2026-08-16
+共收录 51 篇文章，最后更新：2026-08-16
 
 ## (根目录)
 
 | 标题 | 描述 | 链接 |
 | :--- | :--- | :--- |
 | index | （无描述，请补充） | [./docs/index](./docs/index) |
-
-## api
-
-| 标题 | 描述 | 链接 |
-| :--- | :--- | :--- |
-| api/commands | （无描述，请补充） | [./docs/api/commands](./docs/api/commands) |
-| API Overview | （无描述，请补充） | [./docs/api/index](./docs/api/index) |
 
 ## basic
 
@@ -37,6 +30,10 @@
 | C# 中的常用数据结构 | C# 常用数据结构详解，包括 List、Dictionary、Queue、Stack、LinkedList、HashSet、SortedList 等的使用场景和最佳实践。 | [./docs/basic/collections/basic](./docs/basic/collections/basic) |
 | BlockingCollection | C# BlockingCollection 详解，线程安全的生产者-消费者集合，包括阻塞和限制功能、并发编程实践。 | [./docs/basic/collections/BlockingCollection](./docs/basic/collections/BlockingCollection) |
 | Channel | C# Channel 详解，基于 System.Threading.Channels 的线程安全生产者-消费者数据结构，支持异步读写。 | [./docs/basic/collections/Channel](./docs/basic/collections/Channel) |
+| 内存与高性能处理 | C# 内存与高性能处理类型详解，包括 Memory、ArraySegment、StringBuilder、Buffer 的用法、与 Span 的配合及选型建议。 | [./docs/basic/collections/memory-and-performance](./docs/basic/collections/memory-and-performance) |
+| 只读与不可变集合 | C# 只读与不可变集合详解，ReadOnlyCollection 包装器、Frozen 系列与 System.Collections.Immutable 不可变集合的用法和选型。 | [./docs/basic/collections/readonly-and-immutable](./docs/basic/collections/readonly-and-immutable) |
+| 有序集合：SortedList 与 SortedDictionary | C# 有序集合详解，SortedList 与 SortedDictionary 的实现原理、性能对比和适用场景，以及与 SortedSet 的关系。 | [./docs/basic/collections/sorted-collections](./docs/basic/collections/sorted-collections) |
+| 专用集合 | C# 专用集合详解，包括 Collection 基类、KeyedCollection、ObservableCollection、Deque、ConcurrentBag、OrderedDictionary 及遗留非泛型集合。 | [./docs/basic/collections/specialized-collections](./docs/basic/collections/specialized-collections) |
 
 ## basic/db
 
@@ -83,6 +80,7 @@
 
 | 标题 | 描述 | 链接 |
 | :--- | :--- | :--- |
+| 常用内置类型 | C# 常用内置类型详解，包括 BigInteger、Complex、Half、Int128 等数值类型，时间类型、Guid、Uri、Range 与 Index、Nullable、Lazy 的用法。 | [./docs/basic/types/common-types](./docs/basic/types/common-types) |
 | ExpandoObject | C# 动态类型 ExpandoObject 的使用详解，包括动态属性添加、JSON 反序列化、与 DataTable 互转等。 | [./docs/basic/types/ExpandoObject](./docs/basic/types/ExpandoObject) |
 | record | C# record 类型详解：不可变数据模型、值相等性、非破坏性修改等核心特性，以及与 readonly struct 的对比和选型建议。 | [./docs/basic/types/record](./docs/basic/types/record) |
 | ref、in、out 参数传递 | C# 中 ref、in、out 参数修饰符的详细对比与使用场景，涵盖值传递与引用传递的区别、out 的 TryParse 模式以及 in 的只读引用传递性能优化。 | [./docs/basic/types/ref-in-out](./docs/basic/types/ref-in-out) |
