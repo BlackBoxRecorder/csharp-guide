@@ -144,3 +144,12 @@ vite.config.ts.timestamp-*
 
 # Rspress build output
 doc_build/
+
+# .NET build output
+bin/
+obj/
+*.user
+
+.vs
+
+
