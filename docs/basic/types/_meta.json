@@ -3,5 +3,6 @@
   { "type": "file", "name": "struct", "label": "结构体" },
   { "type": "file", "name": "record", "label": "record" },
   { "type": "file", "name": "ref-in-out", "label": "ref、in、out" },
-  { "type": "file", "name": "ExpandoObject", "label": "ExpandoObject" }
+  { "type": "file", "name": "ExpandoObject", "label": "ExpandoObject" },
+  { "type": "file", "name": "lazy", "label": "Lazy<T>" }
 ]

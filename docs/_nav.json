@@ -25,6 +25,11 @@
     "activeMatch": "/communication/"
   },
   {
+    "text": "Architecture",
+    "link": "/architecture/",
+    "activeMatch": "/architecture/"
+  },
+  {
     "text": "Libraries",
     "link": "/libraries/",
     "activeMatch": "/libraries/"

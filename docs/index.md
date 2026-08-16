@@ -36,6 +36,10 @@ features:
     details: C# 网络通信编程指南，涵盖 TCP、UDP、MQTT、串口通信等协议的原理与实现。
     icon: 📡
     link: /communication/
+  - title: Architecture
+    details: C# 架构设计指南，涵盖设计模式、测试驱动开发（TDD）、领域驱动设计（DDD）与整洁架构等软件设计思想。
+    icon: 🏗️
+    link: /architecture/
   - title: Libraries
     details: 常用 C# 第三方库的使用笔记，涵盖图像处理、序列化、日志、依赖注入等库的实践与踩坑记录。
     icon: 📦

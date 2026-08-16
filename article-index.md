@@ -9,13 +9,25 @@
 - 本文档链接为项目根目录相对路径（无扩展名），在文章内引用时需去掉 `docs/` 前缀，并按文章所在层级添加 `../`。
   例如：本文档链接 `./docs/basic/oop/function`，在 `docs/basic/types/record.md` 中引用时应写作 `./../oop/function`。
 
-共收录 51 篇文章，最后更新：2026-08-16
+共收录 54 篇文章，最后更新：2026-08-16
 
 ## (根目录)
 
 | 标题 | 描述 | 链接 |
 | :--- | :--- | :--- |
 | index | （无描述，请补充） | [./docs/index](./docs/index) |
+
+## architecture
+
+| 标题 | 描述 | 链接 |
+| :--- | :--- | :--- |
+| 架构设计 | C# 架构设计指南，涵盖设计模式、测试驱动开发（TDD）、领域驱动设计（DDD）、整洁架构等软件设计思想与实战。 | [./docs/architecture/index](./docs/architecture/index) |
+
+## architecture/design-patterns
+
+| 标题 | 描述 | 链接 |
+| :--- | :--- | :--- |
+| 设计模式 | C# 设计模式教程，按创建型、结构型、行为型三大类介绍 GoF 设计模式的 C# 代码实现。 | [./docs/architecture/design-patterns/index](./docs/architecture/design-patterns/index) |
 
 ## basic
 
@@ -57,7 +69,7 @@
 | 标题 | 描述 | 链接 |
 | :--- | :--- | :--- |
 | IEnumerable & IEnumerator | C# 中 IEnumerable 和 IEnumerator 接口的深入解析，包括迭代器模式、yield 关键字、协变与逆变等。 | [./docs/basic/linq/IEnumerable-and-IEnumerator](./docs/basic/linq/IEnumerable-and-IEnumerator) |
-| 迭代器 | C# 迭代器（Iterator）详解，包括 yield return/yield break 的使用、延迟执行原理、状态机机制等。 | [./docs/basic/linq/Iterator](./docs/basic/linq/Iterator) |
+| 迭代器 | C# 迭代器（Iterator）详解，包括 yield return/yield break 的使用、迭代器方法、延迟执行原理、状态机机制、异步迭代器（IAsyncEnumerable）等。 | [./docs/basic/linq/Iterator](./docs/basic/linq/Iterator) |
 | LINQ | C# LINQ（语言集成查询）详解，包括标准查询操作符、延迟执行、分组、连接、聚合等核心用法。 | [./docs/basic/linq/LINQ](./docs/basic/linq/LINQ) |
 
 ## basic/oop
@@ -65,7 +77,7 @@
 | 标题 | 描述 | 链接 |
 | :--- | :--- | :--- |
 | 抽象类 | C# 抽象类和密封类详解，包括 abstract 和 sealed 关键字、抽象成员、密封方法、sealed record 及与接口的选择。 | [./docs/basic/oop/abstract](./docs/basic/oop/abstract) |
-| 函数与方法 | C# 函数与方法详解，包括方法定义与调用、参数传递（ref/out/in）、返回值、委托与 Lambda、局部函数、异步方法、虚方法与多态。 | [./docs/basic/oop/function](./docs/basic/oop/function) |
+| 函数与方法 | C# 函数与方法详解，包括方法定义与调用、方法重载、扩展方法、参数传递（ref/out/in）、返回值、委托与 Lambda、局部函数、异步方法、虚方法与多态。 | [./docs/basic/oop/function](./docs/basic/oop/function) |
 | 面向对象编程 | C# 面向对象编程的核心概念，包括抽象类、接口、函数与方法、索引器、多态等。 | [./docs/basic/oop/index](./docs/basic/oop/index) |
 | 索引器 | C# 索引器（Indexer）详解，包括基本用法、多参数索引器、接口实现、与属性的对比等。 | [./docs/basic/oop/indexer](./docs/basic/oop/indexer) |
 | 接口 | C# 接口（Interface）详解，包括接口定义、实现、默认实现、多接口继承、接口与抽象类的区别。 | [./docs/basic/oop/interface](./docs/basic/oop/interface) |
@@ -82,6 +94,7 @@
 | :--- | :--- | :--- |
 | 常用内置类型 | C# 常用内置类型详解，包括 BigInteger、Complex、Half、Int128 等数值类型，时间类型、Guid、Uri、Range 与 Index、Nullable、Lazy 的用法。 | [./docs/basic/types/common-types](./docs/basic/types/common-types) |
 | ExpandoObject | C# 动态类型 ExpandoObject 的使用详解，包括动态属性添加、JSON 反序列化、与 DataTable 互转等。 | [./docs/basic/types/ExpandoObject](./docs/basic/types/ExpandoObject) |
+| Lazy<T> 懒加载 | C# Lazy<T> 懒加载详解，包括基本用法、线程安全模式、异常缓存行为与典型应用场景。 | [./docs/basic/types/lazy](./docs/basic/types/lazy) |
 | record | C# record 类型详解：不可变数据模型、值相等性、非破坏性修改等核心特性，以及与 readonly struct 的对比和选型建议。 | [./docs/basic/types/record](./docs/basic/types/record) |
 | ref、in、out 参数传递 | C# 中 ref、in、out 参数修饰符的详细对比与使用场景，涵盖值传递与引用传递的区别、out 的 TryParse 模式以及 in 的只读引用传递性能优化。 | [./docs/basic/types/ref-in-out](./docs/basic/types/ref-in-out) |
 | C#中的结构体 | C# 结构体（struct）详解，包括值类型特性、内存管理、与类的区别、适用场景和最佳实践。 | [./docs/basic/types/struct](./docs/basic/types/struct) |
