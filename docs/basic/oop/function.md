@@ -1,6 +1,6 @@
 ---
 title: 函数与方法
-description: C# 函数与方法详解，包括方法定义与调用、参数传递（ref/out/in）、返回值、委托与 Lambda、局部函数、异步方法、虚方法与多态。
+description: C# 函数与方法详解，包括方法定义与调用、方法重载、扩展方法、参数传递（ref/out/in）、返回值、委托与 Lambda、局部函数、异步方法、虚方法与多态。
 ---
 
 ### C# 函数与方法详解
@@ -59,7 +59,85 @@ public int Add(int a, int b)
 ```
 
 
-#### 三、参数传递
+#### 三、方法重载
+
+**方法重载（Overload）**：同一个类中，方法名相同、但**参数类型或个数不同**的一组方法。调用时，编译器根据实参自动匹配最合适的一个：
+
+```csharp
+public class Calculator
+{
+    // 基础版本：两个整数相加
+    public int Add(int a, int b) => a + b;
+
+    // 重载①：参数个数不同
+    public int Add(int a, int b, int c) => a + b + c;
+
+    // 重载②：参数类型不同
+    public double Add(double a, double b) => a + b;
+
+    // 重载③：参数类型组合不同
+    public double Add(int a, double b) => a + b;
+}
+
+var calc = new Calculator();
+Console.WriteLine(calc.Add(1, 2));     // 输出：3
+Console.WriteLine(calc.Add(1, 2, 3));  // 输出：6
+Console.WriteLine(calc.Add(1.5, 2.5)); // 输出：4
+Console.WriteLine(calc.Add(1, 2.5));   // 输出：3.5
+```
+
+**重载的规则**：
+
+1. 仅靠**返回值**不同不能构成重载（`int Add(int, int)` 与 `double Add(int, int)` 同时存在会编译报错）
+2. 仅靠**参数名**不同不能构成重载
+3. 编译器依据实参的**类型和个数**选择调用哪个重载；`ref`/`out` 也参与签名区分
+
+**重载 vs 重写**：两者名字相近，但机制完全不同。**重载**是"同名不同参"，编译期根据实参选择；**重写（override）**是"同签名换实现"，运行期根据对象的实际类型选择（见第十章）。
+
+**典型应用**：`Console.WriteLine` 提供了 19 个重载，`int.Parse`、`string.Substring` 等也靠重载提供各种便捷变体。相比**可选参数**，重载更显式，且在二进制库演进时新增重载不会破坏旧调用。
+
+#### 四、扩展方法
+
+**扩展方法（Extension Method）**：允许**不修改原类型**（尤其是第三方库和 BCL 类型），就为其"添加"新方法。它本质上是静态类中的静态方法，靠 `this` 修饰第一个参数声明：
+
+```csharp
+// 扩展方法必须放在静态类中
+public static class StringExtensions
+{
+    // this string 表示：为 string 类型扩展一个 WordCount 方法
+    public static int WordCount(this string text) =>
+        text.Split(' ', StringSplitOptions.RemoveEmptyEntries).Length;
+}
+
+var sentence = "Hello C# world";
+Console.WriteLine(sentence.WordCount()); // 输出：3
+```
+
+调用时 `sentence.WordCount()` 看起来像实例方法，编译器实际会翻译成静态调用 `StringExtensions.WordCount(sentence)`。
+
+**最常见的扩展方法：LINQ**。`Where`、`Select`、`OrderBy` 等都是 `System.Linq.Enumerable` 静态类中的扩展方法，这正是 `IEnumerable<T>` 能"自带"丰富查询能力的原因：
+
+```csharp
+public static class EnumerableExtensions
+{
+    // 为 IEnumerable<int> 扩展：统计偶数个数
+    public static int CountEven(this IEnumerable<int> numbers) =>
+        numbers.Count(n => n % 2 == 0);
+}
+
+int[] nums = { 1, 2, 3, 4, 5, 6 };
+Console.WriteLine(nums.CountEven()); // 输出：3
+```
+
+**要点**：
+
+1. 扩展方法必须定义在**静态类**中，且本身是静态方法
+2. 第一个参数用 `this` 修饰，表示被扩展的类型；调用时该参数不需要传，所以实参个数比声明参数少 1
+3. **实例方法优先**：如果类型本身已有同签名的方法，实例方法总是胜出，扩展方法会被忽略
+4. 无法访问类型的私有成员，也不能"覆盖"已有方法——它是"锦上添花"，不是"修改源码"
+5. 适用场景：为第三方/BCL 类型补充辅助方法、封装重复的链式调用；滥用会让方法来源难查，应保持克制
+
+#### 五、参数传递
 
 参数是函数的输入。C# 默认**按值传递**，并通过 `ref`、`out`、`in` 三个关键字提供引用传递的变体。
 
@@ -104,7 +182,7 @@ Describe(new Vector3(1, 2, 3)); // 输出：(1, 2, 3)
 
 `ref`、`out`、`in` 三种参数的完整对比与常见疑问见[ref、in、out 参数传递](./../types/ref-in-out)。
 
-#### 四、返回值
+#### 六、返回值
 
 方法的返回类型决定了它能返回什么。
 
@@ -113,7 +191,7 @@ Describe(new Vector3(1, 2, 3)); // 输出：(1, 2, 3)
 - **值类型**：`int`、`double`、`struct`、`enum` 等
 - **引用类型**：`class`、`string`、`interface`、`record` 等
 - **`void`**：无返回值，仅执行操作
-- **`Task`/`Task<T>`**：异步操作的"容器"（见第七章）
+- **`Task`/`Task<T>`**：异步操作的"容器"（见第九章）
 
 **返回多个值**：现代 C# 推荐使用**元组（Tuple）**，比 `out` 参数更清晰：
 
@@ -129,6 +207,26 @@ Console.WriteLine($"总和 {stats.Sum}，共 {stats.Count} 个"); // 输出：�
 ```
 
 **返回接口而非具体类型**：方法可以返回接口（如 `IEnumerable<T>`），让调用方只依赖契约而不依赖实现，这是解耦和可测试的关键。接口的完整讲解见[接口](./interface)。
+
+**返回迭代器：yield 逐个产出结果**：方法还可以返回 `IEnumerable<T>`，并在方法体内用 `yield return` **逐个产出**结果，这就是**迭代器方法**。与普通方法不同，调用时方法体不会立即执行，而是每次遍历请求元素时才推进到下一个 `yield`：
+
+```csharp
+// 迭代器方法：yield 逐个返回偶数
+public static IEnumerable<int> GetEvens(int max)
+{
+    for (int i = 0; i <= max; i += 2)
+    {
+        yield return i; // 产出当前元素，暂停执行
+    }
+}
+
+foreach (var n in GetEvens(10))
+{
+    Console.Write($"{n} "); // 输出：0 2 4 6 8 10
+}
+```
+
+普通方法用 `return` 返回 `List<T>` 会一次性构建完所有数据；迭代器则按需计算、按需消费，适合惰性生成序列。延迟执行原理、状态机机制与异步迭代器的完整讲解见[迭代器](./../linq/Iterator)。
 
 **返回"函数"本身**：方法的返回类型也可以是委托或 Lambda，让方法"产出"一段可复用的逻辑，这就是**高阶函数**（返回函数的函数）：
 
@@ -148,7 +246,7 @@ Console.WriteLine(addFive(10)); // 输出：15
 
 委托、Lambda 与闭包的完整讲解见下一节。
 
-#### 五、委托与 Lambda
+#### 七、委托与 Lambda
 
 委托（Delegate）是 C# 的**类型安全的函数指针**：把"函数"本身当作值来存储、传递和调用。委托的声明、多播、内置泛型委托等完整讲解见[委托](./../delegates/delegate)。
 
@@ -194,7 +292,7 @@ Console.WriteLine(doubleIt(5)); // 输出：10
 
 委托与事件的完整讲解见[委托](./../delegates/delegate)、[Func 与 Action](./../delegates/func-and-action)、[事件](./../delegates/event)。
 
-#### 六、局部函数
+#### 八、局部函数
 
 局部函数（Local Function，C# 7+）是定义在方法**内部**的私有函数，用于封装仅被本方法使用的辅助逻辑。
 
@@ -228,7 +326,7 @@ public void ProcessData(IEnumerable<int> data)
 2. **能力**：局部函数支持递归、泛型、`yield return`，Lambda 均不支持
 3. **可读性**：辅助逻辑就在使用它的地方，无需上下翻找
 
-#### 七、异步方法
+#### 九、异步方法
 
 异步方法（`async`/`await`）用于网络请求、文件读写等 IO 场景：调用时**不阻塞当前线程**，操作完成后自动恢复执行。
 
@@ -251,7 +349,7 @@ Console.WriteLine(content); // 输出：已下载 https://example.com，长度 2
 2. **禁止 `async void`**：它无法被 `await`、异常无法捕获，会直接导致进程崩溃；仅事件处理器可以使用
 3. 编译器会把异步方法改写为**状态机**：执行到 `await` 时若操作未完成，立即返回 `Task` 并释放线程，操作完成后恢复执行——这就是"异步"不阻塞线程的原理
 
-#### 八、虚方法与多态
+#### 十、虚方法与多态
 
 虚方法（Virtual Method）是面向对象的核心机制：基类声明 `virtual` 方法提供默认实现，派生类用 `override` 重写，从而通过**基类引用**调用**派生类实现**——这就是多态。
 
@@ -302,7 +400,7 @@ foreach (Animal animal in animals)
 
 另外，被 `override` 重写的虚方法还可以用 `sealed override` 冻结，禁止后续子类再重写。抽象类的完整讲解见[抽象类](./abstract)。
 
-#### 九、最佳实践
+#### 十一、最佳实践
 
 1. **短小精悍**：方法只做一件事（单一职责），过长时用局部函数拆分辅助逻辑
 2. **表达意图**：单表达式方法用表达式体成员（`=>`），多返回值用元组而非 `out` 堆砌
@@ -311,10 +409,16 @@ foreach (Animal animal in animals)
 5. **异步到底**：异步方法永远返回 `Task`/`Task<T>`，绝不使用 `async void`
 6. **用虚方法提供扩展点**：基类预留可重写的行为用 `virtual`，强制实现用 `abstract`
 7. **返回接口而非具体类型**：对外暴露 `IEnumerable<T>` 等接口，保护内部实现
+8. **用重载提供便捷变体**：同一操作的不同参数个数/类型用重载表达，但别仅靠返回值区分
+9. **克制使用扩展方法**：只在无法修改原类型（第三方/BCL）时使用，并给出清晰的命名，避免方法来源难查
+10. **用迭代器惰性生成序列**：需要按需、分批产出数据时用 `yield` 迭代器方法，避免一次性构建大集合
 
-#### 十、参考链接
+#### 十二、参考链接
 
 - [方法（C# 编程指南）](https://learn.microsoft.com/zh-cn/dotnet/csharp/programming-guide/classes-and-structs/methods)
+- [扩展方法（C# 编程指南）](https://learn.microsoft.com/zh-cn/dotnet/csharp/programming-guide/classes-and-structs/extension-methods)
+- [迭代器（C# 编程指南）](https://learn.microsoft.com/zh-cn/dotnet/csharp/programming-guide/concepts/iterators)
+- [yield 关键字（C# 参考）](https://learn.microsoft.com/zh-cn/dotnet/csharp/language-reference/statements/yield)
 - [virtual 关键字（C# 参考）](https://learn.microsoft.com/zh-cn/dotnet/csharp/language-reference/keywords/virtual)
 - [Lambda 表达式（C# 参考）](https://learn.microsoft.com/zh-cn/dotnet/csharp/language-reference/operators/lambda-expressions)
 - [async 关键字（C# 参考）](https://learn.microsoft.com/zh-cn/dotnet/csharp/language-reference/keywords/async)
