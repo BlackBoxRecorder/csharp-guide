@@ -7,6 +7,7 @@
     "build": "rspress build",
     "check": "biome check --write",
     "dev": "rspress dev",
+    "docs:index": "node scripts/generate-article-index.mjs",
     "format": "biome format --write",
     "preview": "rspress preview"
   },
