@@ -1,0 +1,36 @@
+[
+  "index",
+  {
+    "type": "section-header",
+    "label": "创建型模式"
+  },
+  "abstract-factory",
+  "builder",
+  "factory-method",
+  "prototype",
+  "singleton",
+  {
+    "type": "section-header",
+    "label": "结构型模式"
+  },
+  "adapter",
+  "bridge",
+  "composite",
+  "decorator",
+  "facade",
+  "flyweight",
+  "proxy",
+  {
+    "type": "section-header",
+    "label": "行为型模式"
+  },
+  "chain-of-responsibility",
+  "command",
+  "iterator",
+  "mediator",
+  "observer",
+  "state",
+  "strategy",
+  "template-method",
+  "visitor"
+]

@@ -9,7 +9,7 @@
 - 本文档链接为项目根目录相对路径（无扩展名），在文章内引用时需去掉 `docs/` 前缀，并按文章所在层级添加 `../`。
   例如：本文档链接 `./docs/basic/oop/function`，在 `docs/basic/types/record.md` 中引用时应写作 `./../oop/function`。
 
-共收录 54 篇文章，最后更新：2026-08-16
+共收录 75 篇文章，最后更新：2026-08-16
 
 ## (根目录)
 
@@ -27,7 +27,28 @@
 
 | 标题 | 描述 | 链接 |
 | :--- | :--- | :--- |
-| 设计模式 | C# 设计模式教程，按创建型、结构型、行为型三大类介绍 GoF 设计模式的 C# 代码实现。 | [./docs/architecture/design-patterns/index](./docs/architecture/design-patterns/index) |
+| 抽象工厂模式 | C# 抽象工厂模式（Abstract Factory）详解：创建一组相关或依赖的对象家族，无需指定具体类，结合披萨配料工厂示例讲解。 | [./docs/architecture/design-patterns/abstract-factory](./docs/architecture/design-patterns/abstract-factory) |
+| 适配器模式 | C# 适配器模式（Adapter）详解：将不兼容的接口转换为客户端期望的接口，结合鸭子与火鸡示例讲解。 | [./docs/architecture/design-patterns/adapter](./docs/architecture/design-patterns/adapter) |
+| 桥接模式 | C# 桥接模式（Bridge）详解：将抽象与实现分离，使两者可以独立变化，结合武器与附魔示例讲解。 | [./docs/architecture/design-patterns/bridge](./docs/architecture/design-patterns/bridge) |
+| 建造者模式 | C# 建造者模式（Builder）详解：分步构建复杂对象，将构造过程与表示分离，结合汉堡制作示例讲解。 | [./docs/architecture/design-patterns/builder](./docs/architecture/design-patterns/builder) |
+| 责任链模式 | C# 责任链模式（Chain of Responsibility）详解：将请求沿处理链传递直到有对象处理它，结合运算处理器示例讲解。 | [./docs/architecture/design-patterns/chain-of-responsibility](./docs/architecture/design-patterns/chain-of-responsibility) |
+| 命令模式 | C# 命令模式（Command）详解：将请求封装为对象，支持撤销、重放与排队，结合遥控器示例讲解。 | [./docs/architecture/design-patterns/command](./docs/architecture/design-patterns/command) |
+| 组合模式 | C# 组合模式（Composite）详解：将对象组织成树形结构，使单个对象与组合对象使用一致，结合菜单树示例讲解。 | [./docs/architecture/design-patterns/composite](./docs/architecture/design-patterns/composite) |
+| 装饰器模式 | C# 装饰器模式（Decorator）详解：动态地为对象添加职责，比继承更灵活，结合咖啡加料示例讲解。 | [./docs/architecture/design-patterns/decorator](./docs/architecture/design-patterns/decorator) |
+| 外观模式 | C# 外观模式（Facade）详解：为复杂子系统提供统一的高层接口，结合家庭影院示例讲解。 | [./docs/architecture/design-patterns/facade](./docs/architecture/design-patterns/facade) |
+| 工厂方法模式 | C# 工厂方法模式（Factory Method）详解：将对象创建延迟到子类，由子类决定实例化哪个类，结合披萨工厂示例讲解。 | [./docs/architecture/design-patterns/factory-method](./docs/architecture/design-patterns/factory-method) |
+| 享元模式 | C# 享元模式（Flyweight）详解：共享细粒度对象以减少内存占用，结合奶茶订单示例讲解。 | [./docs/architecture/design-patterns/flyweight](./docs/architecture/design-patterns/flyweight) |
+| 设计模式 | C# 设计模式教程，按创建型、结构型、行为型三大类介绍 21 种 GoF 设计模式的 C# 代码实现与使用场景。 | [./docs/architecture/design-patterns/index](./docs/architecture/design-patterns/index) |
+| 迭代器模式 | C# 迭代器模式（Iterator）详解：顺序访问集合元素而不暴露内部表示，结合菜单遍历示例讲解。 | [./docs/architecture/design-patterns/iterator](./docs/architecture/design-patterns/iterator) |
+| 中介者模式 | C# 中介者模式（Mediator）详解：通过中介对象简化对象间的交互，结合项目经理协调示例讲解。 | [./docs/architecture/design-patterns/mediator](./docs/architecture/design-patterns/mediator) |
+| 观察者模式 | C# 观察者模式（Observer）详解：定义一对多依赖，状态变化时自动通知订阅者，结合天气广播示例讲解。 | [./docs/architecture/design-patterns/observer](./docs/architecture/design-patterns/observer) |
+| 原型模式 | C# 原型模式（Prototype）详解：通过复制现有实例创建新对象，避免重复初始化，结合图形克隆示例讲解。 | [./docs/architecture/design-patterns/prototype](./docs/architecture/design-patterns/prototype) |
+| 代理模式 | C# 代理模式（Proxy）详解：为对象提供替身以控制访问，结合图片懒加载示例讲解。 | [./docs/architecture/design-patterns/proxy](./docs/architecture/design-patterns/proxy) |
+| 单例模式 | C# 单例模式（Singleton）详解：确保一个类只有一个实例并提供全局访问点，结合巧克力锅炉示例讲解线程安全的 Lazy 实现。 | [./docs/architecture/design-patterns/singleton](./docs/architecture/design-patterns/singleton) |
+| 状态模式 | C# 状态模式（State）详解：对象内部状态变化时改变其行为，结合口香糖机示例讲解。 | [./docs/architecture/design-patterns/state](./docs/architecture/design-patterns/state) |
+| 策略模式 | C# 策略模式（Strategy）详解：定义一系列算法并封装，使它们可以互相替换，结合鸭子行为示例讲解。 | [./docs/architecture/design-patterns/strategy](./docs/architecture/design-patterns/strategy) |
+| 模板方法模式 | C# 模板方法模式（Template Method）详解：定义算法骨架，将步骤延迟到子类实现，结合饮料冲泡示例讲解。 | [./docs/architecture/design-patterns/template-method](./docs/architecture/design-patterns/template-method) |
+| 访问者模式 | C# 访问者模式（Visitor）详解：在不修改类的前提下为类层次增加新操作，结合房屋单元示例讲解。 | [./docs/architecture/design-patterns/visitor](./docs/architecture/design-patterns/visitor) |
 
 ## basic
 
