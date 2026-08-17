@@ -1,7 +1,20 @@
 [
   {
-    "type": "dir-section-header",
+    "type": "dir",
     "name": "design-patterns",
-    "label": "设计模式"
+    "label": "设计模式",
+    "collapsed": true
+  },
+  {
+    "type": "dir",
+    "name": "ddd",
+    "label": "领域驱动设计（DDD）",
+    "collapsed": true
+  },
+  {
+    "type": "dir",
+    "name": "tdd",
+    "label": "测试驱动开发（TDD）",
+    "collapsed": true
   }
 ]

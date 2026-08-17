@@ -3,8 +3,6 @@ title: "EFCore 配置指南"
 description: "EF Core 配置指南，包括 Fluent API、数据注释、关系配置和表映射策略。"
 slug: "dotnet/orm/entityframeworkcore/configuration-guide"
 draft: false
-sidebar:
-  order: 4
 ---
 
 本文详细介绍 EF Core 的各种配置方式，包括数据库连接配置、DbContext 配置、日志配置、模型映射配置等内容。

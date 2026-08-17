@@ -2,8 +2,6 @@
 title: "Entity Framework Core 简介"
 slug: "dotnet/orm/entityframeworkcore"
 draft: false
-sidebar:
-  order: 1
 ---
 
 Entity Framework Core (简称 EF Core) 是微软官方推出的轻量级、跨平台、开源的对象关系映射（ORM）框架，是 .NET 生态中最主流的数据库访问技术。它允许开发者使用 .NET 对象来操作数据库，无需编写大量原生 SQL 代码，极大地提高了数据访问层的开发效率。

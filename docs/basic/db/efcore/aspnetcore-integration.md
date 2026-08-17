@@ -3,8 +3,6 @@ title: "在 ASP.NET Core 中集成 EFCore"
 description: "EF Core 与 ASP.NET Core 集成，包括依赖注入、连接池、多租户和单元测试。"
 slug: "dotnet/orm/entityframeworkcore/aspnetcore-integration"
 draft: false
-sidebar:
-  order: 7
 ---
 
 EF Core 与 ASP.NET Core 有很好的集成，本文详细介绍如何在 ASP.NET Core 项目中配置和使用 EF Core，包括依赖注入、配置、最佳实践等内容。

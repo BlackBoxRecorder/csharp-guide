@@ -9,7 +9,7 @@
 - 本文档链接为项目根目录相对路径（无扩展名），在文章内引用时需去掉 `docs/` 前缀，并按文章所在层级添加 `../`。
   例如：本文档链接 `./docs/basic/oop/function`，在 `docs/basic/types/record.md` 中引用时应写作 `./../oop/function`。
 
-共收录 75 篇文章，最后更新：2026-08-16
+共收录 77 篇文章，最后更新：2026-08-17
 
 ## (根目录)
 
@@ -22,6 +22,12 @@
 | 标题 | 描述 | 链接 |
 | :--- | :--- | :--- |
 | 架构设计 | C# 架构设计指南，涵盖设计模式、测试驱动开发（TDD）、领域驱动设计（DDD）、整洁架构等软件设计思想与实战。 | [./docs/architecture/index](./docs/architecture/index) |
+
+## architecture/ddd
+
+| 标题 | 描述 | 链接 |
+| :--- | :--- | :--- |
+| 领域驱动设计（DDD） | C# 领域驱动设计（DDD）入门：从限界上下文、通用语言等战略设计，到实体、值对象、聚合、领域事件与仓储等战术设计，配合电商订单域可运行示例。 | [./docs/architecture/ddd/index](./docs/architecture/ddd/index) |
 
 ## architecture/design-patterns
 
@@ -49,6 +55,12 @@
 | 策略模式 | C# 策略模式（Strategy）详解：定义一系列算法并封装，使它们可以互相替换，结合鸭子行为示例讲解。 | [./docs/architecture/design-patterns/strategy](./docs/architecture/design-patterns/strategy) |
 | 模板方法模式 | C# 模板方法模式（Template Method）详解：定义算法骨架，将步骤延迟到子类实现，结合饮料冲泡示例讲解。 | [./docs/architecture/design-patterns/template-method](./docs/architecture/design-patterns/template-method) |
 | 访问者模式 | C# 访问者模式（Visitor）详解：在不修改类的前提下为类层次增加新操作，结合房屋单元示例讲解。 | [./docs/architecture/design-patterns/visitor](./docs/architecture/design-patterns/visitor) |
+
+## architecture/tdd
+
+| 标题 | 描述 | 链接 |
+| :--- | :--- | :--- |
+| 测试驱动开发（TDD） | C# 测试驱动开发（TDD）实战教程：红绿重构核心循环、测试金字塔与测试策略，并通过 xUnit 对订单域从零 TDD 的完整演练。 | [./docs/architecture/tdd/index](./docs/architecture/tdd/index) |
 
 ## basic
 

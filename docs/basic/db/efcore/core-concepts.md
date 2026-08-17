@@ -3,8 +3,6 @@ title: "EFCore 核心概念"
 description: "EF Core 核心概念，包括实体、DbContext、变更追踪、查询管道和保存数据。"
 slug: "dotnet/orm/entityframeworkcore/core-concepts"
 draft: false
-sidebar:
-  order: 3
 ---
 
 本文详细介绍 EF Core 的核心组件和工作原理，帮助你深入理解 EF Core 的运行机制，为后续的高级用法打下基础。
