@@ -13,5 +13,11 @@
     "type": "file",
     "name": "BlockingCollection",
     "label": "BlockingCollection"
-  }
+  },
+    {
+    "type": "file",
+    "name": "binary-tree",
+    "label": "二叉树"
+  },
+  { "type": "file", "name": "linked-list-and-doubly-linked-list", "label": "链表" }
 ]
