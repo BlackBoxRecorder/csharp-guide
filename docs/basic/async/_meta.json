@@ -1,0 +1,32 @@
+[
+    {
+        "type": "file",
+        "name": "async",
+        "label": "什么是异步"
+    },
+    {
+        "type": "file",
+        "name": "async-task-parallel",
+        "label": "异步、多线程与并行"
+    },
+    {
+        "type": "file",
+        "name": "async-basics",
+        "label": "异步编程基础"
+    },
+    {
+        "type": "file",
+        "name": "async-patterns",
+        "label": "异步编程模式"
+    },
+    {
+        "type": "file",
+        "name": "async-best-practices",
+        "label": "异步编程最佳实践"
+    },
+    {
+        "type": "file",
+        "name": "async-advanced",
+        "label": "异步编程高级主题"
+    }
+]
